@@ -1,0 +1,35 @@
+<template name="app">
+
+  <header>
+    <form class="addElement">
+      <input type="number" name="atNum" placeholder="Atomic Number" required />
+      <input type="text" name="elName" placeholder="Element Name" required />
+      <input class="submit" type="submit" value="Submit" />
+    </form>
+  </header>
+
+  {{#if Template.subscriptionsReady}}
+
+    <ul>
+      {{#each elements}}
+
+        {{> element}}
+
+      {{else}}
+
+        <div class="no-elements">
+          Add a new element above!
+        </div>
+
+      {{/each}}
+    </ul>
+
+  {{else}}
+
+    <div class="loading">
+      Loading...
+    </div>
+
+  {{/if}}
+
+</template>
